@@ -47,6 +47,12 @@ also included is a `requirements.txt` file for use with pip.
 Logging has been configured using the standard python logging library. The log will be written to `noclist.log`
 and is set to debug by default.
 
+Logger attributes can be configured through the following environment variables:
+
+    LOG_LEVEL defaults to 'DEBUG'
+    LOG_FILE defaults to 'noclist.log'
+    LOG_FORMAT defaults to '%(asctime)s %(levelname)s %(message)s'
+
 
 ## Documentation
 Code is documented using google-style doc strings that are compatible with the sphinx extenstion napoleon.
