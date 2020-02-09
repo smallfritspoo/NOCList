@@ -1,19 +1,24 @@
 from time import sleep
 from sys import exit
 from requests import get, Response
-from logging import getLogger, FileHandler, Formatter, DEBUG
+from logging import getLogger, FileHandler, Formatter
 from typing import Dict
 from hashlib import sha256
 from json import dumps
+from os import environ
 
+# Enable logging configuration through environment variables, with sane defaults
+LOG_LEVEL = environ.get('LOGLEVEL', 'DEBUG').upper()
+LOG_FILE = environ.get('LOGFILE', 'noclist.log')
+LOG_FORMAT = environ.get('LOG_FORMAT', '%(asctime)s %(levelname)s %(message)s')
 
 # Configure logging
 logger = getLogger()
-handler = FileHandler('noclist.log')
-formatter = Formatter('%(asctime)s %(levelname)s %(message)s')
+handler = FileHandler(LOG_FILE)
+formatter = Formatter(LOG_FORMAT)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
-logger.setLevel(DEBUG)
+logger.setLevel(LOG_LEVEL)
 logger = getLogger(__name__)
 
 
