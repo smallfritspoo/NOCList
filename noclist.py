@@ -36,7 +36,7 @@ class NOCList(object):
 
     """
     def __init__(self, url: str = "http://127.0.0.1", port: str = "8888") -> None:
-        self.url: str = f"http://{url}:{port}"
+        self.url: str = f"{url}:{port}"
         self._auth_token: str = self._get_auth_token()  # some minor level of token protection
         self.user_list: str = dumps(self.get_user_list().split('\n'))
 
