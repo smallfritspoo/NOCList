@@ -5,13 +5,35 @@ A script to connect to the BADSEC vip user api, retrieve the userlist and format
 ## Tests
 Tests are included in `tests/`, and a script to run the tests is provided as `run_tests.sh`
 
-Tests can be manually run with
+Tests can be manually run from the projects root directory with
 
     python -m pytest -v --cov=noclist ./tests/
 
-_Note_: Tests can take a little bit of time to complete as the requirements of the project involved 
-writing the retry and backoff logic by hand and this has not been mocked out. This caveat could be mitigated
-by using a requests plugin that allow retries or something like tenacity that can be easily mocked out.
+_Note_: Tests can take a little bit of time to complete the requirements of the project involved writing the retry and
+backoff logic by hand and this has not been mocked out. This caveat could be mitigated by using a requests plugin that 
+allow retries or something like tenacity that can be easily mocked out.
+
+    ================================================ test session starts ================================================
+    platform linux -- Python 3.6.9, pytest-5.3.5, py-1.8.1, pluggy-0.13.1 -- /usr/bin/python3
+    cachedir: .pytest_cache
+    rootdir: /root/noclist
+    plugins: requests-mock-1.7.0, cov-2.8.1
+    collected 3 items
+    
+    tests/test_noclist.py::test_connection_error PASSED                                                           [ 33%]
+    tests/test_noclist.py::test_exit_on_status_code PASSED                                                        [ 66%]
+    tests/test_noclist.py::test_successful_retrieval PASSED                                                       [100%]
+    
+    ----------- coverage: platform linux, python 3.6.9-final-0 -----------
+    Name                  Stmts   Miss  Cover
+    -----------------------------------------
+    noclist/__init__.py       1      0   100%
+    noclist/noclist.py       56      4    93%
+    -----------------------------------------
+    TOTAL                    57      4    93%
+    
+    
+    ================================================ 3 passed in 36.16s =================================================
 
 ## Requirements
     requests-mock
