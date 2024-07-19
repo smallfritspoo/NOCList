@@ -1,6 +1,5 @@
 # Design Decisions
-First and foremost this is not the way that I would approach this problem in the real world. The most immediate
-changes would be to ditch the custom logic behind retries and backoff. This is much better accomplished by using
+The most immediatechanges would be to ditch the custom logic behind retries and backoff. This is much better accomplished by using
 requests plugins, or other context managers with robust mocking options. There is seldom reason to reinvent the wheel,
 when others have a more robust and mature wheel for your vehicle.
 
